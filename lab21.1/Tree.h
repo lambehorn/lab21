@@ -1,23 +1,24 @@
 #include<iostream>
+#define DEBUG 1
 
 using namespace std;
 
 class Tree {
+// the class that stores information about the tree relationships
 private:
-    class TreeNode {
-        public:
+    class TreeNode { // the class that stores the roots of the tree
+    public:
         TreeNode* left;
         TreeNode* right;
         int data = 0;
         TreeNode() {
             left = nullptr;
             right = nullptr;
-
         };
-        TreeNode(int data = 0, TreeNode* left = nullptr, TreeNode* right = nullptr) {
+        TreeNode(int data = 0) {
             this->data = data;
-            this->left = left;
-            this->right = right;
+            this->left = nullptr;
+            this->right = nullptr;
         }
     };
     TreeNode* root = nullptr;
@@ -27,17 +28,7 @@ public:
         count = 0;
         root = nullptr;
     }
-    void Branch (int data, TreeNode* left = nullptr, TreeNode* right = nullptr) { // <= add recursive or whyle going for tree idk how it doing 
-        TreeNode* current = this -> root;
-        if (root == nullptr) {
-            current = new TreeNode(data, left, right);
+    ~Tree() {}
 
-        }else if (data < current->data) {
-            current->left = new TreeNode(data, current->left, nullptr);
-        }else {
-            current->right = new TreeNode(data, current->right, nullptr);
-        }
-    }
-
-
+    void push(int data, TreeNode* node = nullptr);
 };

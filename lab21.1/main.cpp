@@ -7,10 +7,11 @@ using namespace std;
 int main() {
 
     Tree a;
-    a.Branch(5);
-    a.Branch(7);
-    a.Branch(9);
-    a.Branch(1);
+    a.push(5);
+    a.push(7);
+    a.push(6);
+    a.push(1);
+    a.push(9);
 
     return 0;
 }
