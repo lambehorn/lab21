@@ -7,11 +7,17 @@ using namespace std;
 int main() {
 
     Tree a;
-    a.push(5);
-    a.push(7);
-    a.push(6);
-    a.push(1);
-    a.push(9);
+    a.push(100);
+    a.push(50);
+    a.push(25);
+    a.push(75);
+    a.push(150);
+    a.push(175);
+    a.push(125);
+    a.reverseLevel();
+    a.treeOutput();
 
     return 0;
 }
+
+// :-)
