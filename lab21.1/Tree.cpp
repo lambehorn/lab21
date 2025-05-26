@@ -37,19 +37,33 @@ int Tree::_reverseLevel(TreeNode *node) {
 }
 
 
+
 void Tree::_push(int data, TreeNode*& node, int level) {
     if (node == nullptr) node = new TreeNode(data, 0);
     else if (data < node->data) _push (data, node->left, level + 1);
     else if (data > node->data) _push (data, node->right, level + 1);
 }
 
+void Tree::_printLevel(TreeNode *node, int level, string prefix) {
+
+    if (node == nullptr) {
+        cout << prefix << " - ";
+        return;
+    };
+    if (level == 0) cout << prefix << node->data << " ";
+    else {
+        _printLevel(node->left, level - 1, "L:");
+        _printLevel(node->right, level - 1, "R:");
+    };
+}
+
 void Tree::_treeOutput(TreeNode* node, int level, string prefix) {
 
-    if (node == nullptr) return;
 
-    _treeOutput(node->left, level + 1, " ");
-    cout << node->data << " " << node->level << endl;
-    _treeOutput(node->right, level+1, " ");
+    for (int i = 0; i < level; i++) {
+        _printLevel(node, i);
+        cout  << endl;
+    }
 }
 
 void Tree::_treeSearch(int data, TreeNode *node) {

@@ -28,7 +28,7 @@ private:
     // typedef TreeNode* root;
     TreeNode* root = nullptr;
     int count;
-    string a;
+    string matrix;
 public:
     Tree() {
         count = 0;
@@ -38,13 +38,15 @@ public:
 
     void push(int data) {_push(data, root);}
     void reverseLevel() {_reverseLevel(root);}
-    void treeOutput() {_treeOutput(root);}
+    void treeOutput() {_treeOutput(root, root->level);}
     void treeSearch(int data) {_treeSearch(data, root);}
 private:
+    void _printLevel(TreeNode* node, int level, string prefix = "Rt:");
     void _push(int data, TreeNode*& node, int level = 0);
     void _treeOutput(TreeNode* node, int level = 0, string prefix = "root: ");
     void _treeSearch(int data, TreeNode* node);
     int _reverseLevel(TreeNode* node);
+
 };
 
 // :-)

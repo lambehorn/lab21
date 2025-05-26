@@ -14,6 +14,7 @@ int main() {
     a.push(150);
     a.push(175);
     a.push(125);
+    a.push(135);
     a.reverseLevel();
     a.treeOutput();
 
