@@ -1,7 +1,7 @@
-#include<iostream>
-#include <string>
 #define DEBUG 1
-
+#include <iostream>
+#include <cmath>
+#include <string>
 using namespace std;
 
 class Tree {
@@ -35,8 +35,9 @@ public:
         root = nullptr;
     }
     ~Tree() {}
-
+    //add node at tree
     void push(int data) {_push(data, root);}
+
     void reverseLevel() {_reverseLevel(root);}
     void treeOutput() {_treeOutput(root, root->level);}
     void treeSearch(int data) {_treeSearch(data, root);}
