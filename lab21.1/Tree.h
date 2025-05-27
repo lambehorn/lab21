@@ -35,18 +35,28 @@ public:
         root = nullptr;
     }
     ~Tree() {}
+
     //add node at tree
     void push(int data) {_push(data, root);}
-
+    //adds height to each element of the tree
     void reverseLevel() {_reverseLevel(root);}
-    void treeOutput() {_treeOutput(root, root->level);}
+    //displays the tree horizontal
+    void treeOutput() {_treeOutput(root);}
+    //displays the tree by floor
+    void treeOutput2() {_treeOutput2(root, root->level);}
+    //tree search
     void treeSearch(int data) {_treeSearch(data, root);}
+    //delete tree element
+    void deleteNode(int deleteData) {_deleteNode(deleteData, root);};
 private:
-    void _printLevel(TreeNode* node, int level, string prefix = "Rt:");
     void _push(int data, TreeNode*& node, int level = 0);
-    void _treeOutput(TreeNode* node, int level = 0, string prefix = "root: ");
-    void _treeSearch(int data, TreeNode* node);
     int _reverseLevel(TreeNode* node);
+    void _treeOutput(TreeNode* node, string prefix = "Root: ", string postfix = "");
+    void _printLevel(TreeNode* node, int level, string prefix = "Rt:");
+    void _treeOutput2(TreeNode* node, int level = 0, string prefix = "root: ");
+    void _treeSearch(int data, TreeNode* node);
+    void _deleteNode(int deleteData, TreeNode*& node);
+
 
 };
 
